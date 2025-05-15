@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
 body {
@@ -14,6 +13,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    font-family: 'Arial', sans-serif;
 }
 
 body::before {
@@ -58,6 +58,7 @@ body::before {
     text-align: center;
     padding: 20px;
     max-width: 90%;
+    z-index: 1;
 }
 
 .ball {
@@ -65,15 +66,14 @@ body::before {
     height: 150px;
     background: radial-gradient(circle at 30% 30%, #ffffff, #4CAF50);
     border-radius: 50%;
-    margin: 0 auto 30px;
+    margin: 20px auto;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
 }
 
 .ball:hover {
@@ -97,12 +97,12 @@ body::before {
 }
 
 .message {
-    display: none;
-    margin-bottom: 20px;
+    margin: 20px auto;
     padding: 15px;
     background-color: #4CAF50;
     color: white;
     border-radius: 10px;
+    max-width: 80%;
     animation: fadeIn 0.5s;
 }
 
@@ -119,11 +119,12 @@ body::before {
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-top: 15px;
     border: none;
     cursor: pointer;
     font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
@@ -132,14 +133,10 @@ body::before {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.btn:active {
-    transform: translateY(1px);
-}
-
 h1 {
     color: #333;
-    margin-bottom: 30px;
-    font-size: 24px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 .tooltip {
@@ -154,7 +151,6 @@ h1 {
     font-size: 12px;
     opacity: 0;
     transition: opacity 0.3s;
-    white-space: nowrap;
 }
 
 .ball:hover .tooltip {
