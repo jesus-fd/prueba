@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje Especial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="decoration top-left">👨</div>
+    <div class="decoration top-right">👔</div>
+    <div class="decoration bottom-left">🧔</div>
+    <div class="decoration bottom-right">👴</div>
+    
+    <div class="container">
+        <h1>Toque el balón para revelar el mensaje</h1>
+        
+        <div class="ball" onclick="showMessage()">
+            <span class="tooltip">Tócame</span>
+        </div>
+        
+        <div id="message" class="message">
+            MÁNDAME UN MENSAJE TILIN
+        </div>
+        
+        <a id="whatsappBtn" class="btn" href="#" style="display: none;" target="_blank">Enviar Mensaje</a>
+    </div>
+    
+    <script>
+        function showMessage() {
+            const message = document.getElementById('message');
+            const whatsappBtn = document.getElementById('whatsappBtn');
+            
+            // Mostrar mensaje
+            message.style.display = 'block';
+            
+            // Configurar y mostrar botón de WhatsApp
+            const phoneNumber = '924940754';
+            const defaultMessage = 'COMO HICISTE PARA COLOCAR UN MENSAJE EN MI TELEFONO SIN NISIQUIERA TENERLO';
+            whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
+            whatsappBtn.style.display = 'inline-block';
+            
+            // Animación del balón
+            const ball = document.querySelector('.ball');
+            ball.style.animation = 'none';
+            void ball.offsetWidth; // Trigger reflow
+            ball.style.animation = 'pulse 0.5s';
+        }
+    </script>
+</body>
+</html>
