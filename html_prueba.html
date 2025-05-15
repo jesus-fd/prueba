@@ -15,7 +15,7 @@
     <div class="container">
         <h1>Toque el balón para revelar el mensaje</h1>
         
-        <div class="ball" onclick="showMessage()">
+        <div class="ball" id="ball">
             <span class="tooltip">Tócame</span>
         </div>
         
@@ -27,25 +27,27 @@
     </div>
     
     <script>
-        function showMessage() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const ball = document.getElementById('ball');
             const message = document.getElementById('message');
             const whatsappBtn = document.getElementById('whatsappBtn');
             
-            // Mostrar mensaje
-            message.style.display = 'block';
-            
-            // Configurar y mostrar botón de WhatsApp
-            const phoneNumber = '924940754';
-            const defaultMessage = 'COMO HICISTE PARA COLOCAR UN MENSAJE EN MI TELEFONO SIN NISIQUIERA TENERLO';
-            whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
-            whatsappBtn.style.display = 'inline-block';
-            
-            // Animación del balón
-            const ball = document.querySelector('.ball');
-            ball.style.animation = 'none';
-            void ball.offsetWidth; // Trigger reflow
-            ball.style.animation = 'pulse 0.5s';
-        }
+            ball.addEventListener('click', function() {
+                // Mostrar mensaje
+                message.style.display = 'block';
+                
+                // Configurar botón de WhatsApp
+                const phoneNumber = '924940754';
+                const defaultMessage = 'COMO HICISTE PARA COLOCAR UN MENSAJE EN MI TELEFONO SIN NISIQUIERA TENERLO';
+                whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
+                whatsappBtn.style.display = 'inline-block';
+                
+                // Animación del balón
+                ball.style.animation = 'none';
+                void ball.offsetWidth; // Trigger reflow
+                ball.style.animation = 'pulse 0.5s';
+            });
+        });
     </script>
 </body>
 </html>
