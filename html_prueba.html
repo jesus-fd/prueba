@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensaje Especial</title>
+    <style>
+        /* Estilos básicos para asegurar visibilidad inicial */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+        }
+    </style>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +35,7 @@
             <span class="tooltip">Tócame</span>
         </div>
         
-        <div id="message" class="message">
+        <div id="message" class="message" style="display: none;">
             MÁNDAME UN MENSAJE TILIN
         </div>
         
@@ -27,26 +43,17 @@
     </div>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const ball = document.getElementById('ball');
+        document.getElementById('ball').addEventListener('click', function() {
             const message = document.getElementById('message');
             const whatsappBtn = document.getElementById('whatsappBtn');
             
-            ball.addEventListener('click', function() {
-                // Mostrar mensaje
-                message.style.display = 'block';
-                
-                // Configurar botón de WhatsApp
-                const phoneNumber = '924940754';
-                const defaultMessage = 'COMO HICISTE PARA COLOCAR UN MENSAJE EN MI TELEFONO SIN NISIQUIERA TENERLO';
-                whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
-                whatsappBtn.style.display = 'inline-block';
-                
-                // Animación del balón
-                ball.style.animation = 'none';
-                void ball.offsetWidth; // Trigger reflow
-                ball.style.animation = 'pulse 0.5s';
-            });
+            message.style.display = 'block';
+            whatsappBtn.href = `https://wa.me/924940754?text=${encodeURIComponent('COMO HICISTE PARA COLOCAR UN MENSAJE EN MI TELEFONO SIN NISIQUIERA TENERLO')}`;
+            whatsappBtn.style.display = 'inline-block';
+            
+            this.style.animation = 'none';
+            void this.offsetWidth;
+            this.style.animation = 'pulse 0.5s';
         });
     </script>
 </body>
